@@ -1,9 +1,14 @@
-# coding=UTF-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import urllib.request, json
+import bottle
 from bottle import run, route, static_file, error, request, default_app, get, response, template, redirect
 import datetime
 import html
+
+import os
+from os import environ as env
+from sys import argv
 
 @route("/")
 def index():
@@ -29,5 +34,4 @@ def sida2():
 
     return template('vara', num=voru_num)
 
-if __name__ == "__main__":
-    run(debug=True)
+bottle.run(host='0.0.0.0', port=argv[1])
